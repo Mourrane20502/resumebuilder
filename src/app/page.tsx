@@ -1,103 +1,151 @@
+import { Button } from "@/components/ui/button";
+
+import { Features, pricingPlans } from "@/data/data";
+import { ArrowRightIcon } from "lucide-react";
 import Image from "next/image";
+import React from "react";
+import formPicture from "../assets/2148174087.jpg";
+import FeatureCard from "./(components/FeatureCard";
+import Footer from "./(components/Footer";
+import Header from "./(components/Header";
+import PricingCard from "./(components/PricingCard";
 
-export default function Home() {
+export default function page() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <>
+      <Header />
+      <section className="relative">
+        <div className="fixed inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
+          <div className="fixed left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-fuchsia-400 opacity-20 blur-[100px]"></div>
+        </div>{" "}
+      </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      <section className="relative">
+        <div className="max-w-4xl selection:bg-[#8D54C0] text-balance mx-auto flex flex-col items-center justify-center h-[80vh] container text-center gap-10 px-4">
+          <h1 className="text-4xl md:text-5xl lg:text-7xl text-[#8D54C0] tracking-wide font-bold">
+            Build Your Perfect Resume, Effortlessly
+          </h1>
+          <p className="text-gray-700  text-lg">
+            Create professional resumes with modern templates and export them as
+            PDFs — all in one easy-to-use platform.
+          </p>
+          <Button className="w-1/2 flex items-center py-7 text-xl tracking-wider cursor-pointer">
+            Get Started <ArrowRightIcon className="size-5" />
+          </Button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+      </section>
+      <section>
+        <div className="max-w-5xl mx-auto px-4 text-center">
+          <h2 className="text-4xl tracking-wider md:text-5xl font-bold mb-10">
+            Why Choose ResumeBuilder?
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {Features.map((feature) => (
+              <FeatureCard key={feature.id} {...feature} />
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="py-14 px-6">
+        <div className="max-w-6xl mx-auto container">
+          <h1 className="text-4xl md:text-6xl text-center font-bold mb-10">
+            Pricing Plans
+          </h1>
+          <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {pricingPlans.map((plan) => (
+              <PricingCard key={plan.id} {...plan} />
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="bg-white py-16 px-6 md:px-12 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+        {/* Left - Contact Form */}
+        <div className="flex-1 max-w-lg w-full">
+          <h2 className="text-4xl font-bold text-[#8D54C0] mb-6">
+            Get in Touch
+          </h2>
+          <p className="text-gray-600 mb-8">
+            Have questions or want to collaborate? Fill out the form and we’ll
+            get back to you shortly.
+          </p>
+
+          <form className="space-y-6">
+            {/* Name */}
+            <div className="relative">
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                placeholder=" "
+                className="peer block w-full rounded-md border border-gray-300 px-4 pt-6 pb-2 text-gray-900 placeholder-transparent focus:border-[#8D54C0] focus:outline-none focus:ring-1 focus:ring-[#8D54C0]"
+              />
+              <label
+                htmlFor="name"
+                className="absolute left-4 top-2 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-2 peer-focus:text-sm peer-focus:text-[#8D54C0] cursor-text"
+              >
+                Your Name
+              </label>
+            </div>
+
+            {/* Email */}
+            <div className="relative">
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                placeholder=" "
+                className="peer block w-full rounded-md border border-gray-300 px-4 pt-6 pb-2 text-gray-900 placeholder-transparent focus:border-[#8D54C0] focus:outline-none focus:ring-1 focus:ring-[#8D54C0]"
+              />
+              <label
+                htmlFor="email"
+                className="absolute left-4 top-2 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-2 peer-focus:text-sm peer-focus:text-[#8D54C0] cursor-text"
+              >
+                Your Email
+              </label>
+            </div>
+
+            {/* Message */}
+            <div className="relative">
+              <textarea
+                id="message"
+                name="message"
+                rows={4}
+                required
+                placeholder=" "
+                className="peer block w-full rounded-md border border-gray-300 px-4 pt-6 pb-2 text-gray-900 placeholder-transparent focus:border-[#8D54C0] focus:outline-none focus:ring-1 focus:ring-[#8D54C0] resize-none"
+              />
+              <label
+                htmlFor="message"
+                className="absolute left-4 top-2 text-gray-500 text-sm transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-2 peer-focus:text-sm peer-focus:text-[#8D54C0] cursor-text"
+              >
+                Your Message
+              </label>
+            </div>
+
+            <button
+              type="submit"
+              className="w-full bg-[#8D54C0] hover:bg-[#6b3aab] transition text-white font-semibold rounded-md py-3"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+
+        {/* Right - Image */}
+
+        <div className="hidden md:block">
           <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            src={formPicture}
+            width={600}
+            height={600}
+            alt="Contact us illustration"
+            className="rounded-lg object-cover"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        </div>
+      </section>
+      <Footer />
+    </>
   );
 }
