@@ -1,16 +1,25 @@
 import { Button } from "@/components/ui/button";
 
-import { Features, pricingPlans } from "@/data/data";
+import { Features, pricingPlans, Templates } from "@/data/data";
+import { auth } from "@clerk/nextjs/server";
 import { ArrowRightIcon } from "lucide-react";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 import React from "react";
-import formPicture from "../assets/2148174087.jpg";
-import FeatureCard from "./(components/FeatureCard";
-import Footer from "./(components/Footer";
-import Header from "./(components/Header";
-import PricingCard from "./(components/PricingCard";
+import FeatureCard from "../(components/FeatureCard";
+import PricingCard from "../(components/PricingCard";
+import TemplateCard from "../(components/TemplateCard";
+import Footer from "../(navigation)/Footer";
+import Header from "../(navigation)/Header";
+import formPicture from "../../assets/2148174087.jpg";
 
-export default function page() {
+export default function Page() {
+  // const { userId } = await auth();
+
+  // if (userId != null) {
+  //   redirect("/dashboard");
+  // }
+
   return (
     <>
       <Header />
@@ -20,12 +29,12 @@ export default function page() {
         </div>{" "}
       </section>
 
-      <section className="relative">
-        <div className="max-w-4xl selection:bg-[#8D54C0] text-balance mx-auto flex flex-col items-center justify-center h-[80vh] container text-center gap-10 px-4">
-          <h1 className="text-4xl md:text-5xl lg:text-7xl text-[#8D54C0] tracking-wide font-bold">
+      <section className="relative py-14">
+        <div className="max-w-4xl selection:bg-gray-200 text-balance mx-auto flex flex-col items-center justify-center h-[75vh] container text-center gap-10 px-4">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl md:leading-20 text-[#8D54C0] tracking-wide font-bold">
             Build Your Perfect Resume, Effortlessly
           </h1>
-          <p className="text-gray-700  text-lg">
+          <p className="text-gray-700 text-lg md:text-xl">
             Create professional resumes with modern templates and export them as
             PDFs — all in one easy-to-use platform.
           </p>
@@ -34,10 +43,10 @@ export default function page() {
           </Button>
         </div>
       </section>
-      <section>
+      <section id="features" className="scroll-mt-28 mb-10">
         <div className="max-w-5xl mx-auto px-4 text-center">
-          <h2 className="text-4xl tracking-wider md:text-5xl font-bold mb-10">
-            Why Choose ResumeBuilder?
+          <h2 className="text-4xl tracking-wider md:text-5xl font-semibold mb-10">
+            Why Choose <span className="text-[#8D54C0]">ResumeBuilder?</span>
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {Features.map((feature) => (
@@ -46,10 +55,10 @@ export default function page() {
           </div>
         </div>
       </section>
-      <section className="py-14 px-6">
+      <section id="pricing" className="py-20 px-6 scroll-mt-11 mb-10">
         <div className="max-w-6xl mx-auto container">
-          <h1 className="text-4xl md:text-6xl text-center font-bold mb-10">
-            Pricing Plans
+          <h1 className="text-4xl md:text-6xl text-center font-semibold mb-14">
+            Discover Our <span className="text-[#8D54C0]">Pricing Plans</span>
           </h1>
           <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {pricingPlans.map((plan) => (
@@ -58,8 +67,20 @@ export default function page() {
           </div>
         </div>
       </section>
+
+      <section className="py-6">
+        <div className="max-w-4xl mx-auto container">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-10">
+            Explore Our <span className="text-[#8D54C0]">Resume Templates</span>
+          </h2>
+          <div className="px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+            {Templates.map((template) => (
+              <TemplateCard key={template.id} {...template} />
+            ))}
+          </div>
+        </div>
+      </section>
       <section className="bg-white py-16 px-6 md:px-12 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
-        {/* Left - Contact Form */}
         <div className="flex-1 max-w-lg w-full">
           <h2 className="text-4xl font-bold text-[#8D54C0] mb-6">
             Get in Touch
