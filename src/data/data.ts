@@ -5,6 +5,10 @@ import {
   Settings,
   Zap,
 } from "lucide-react";
+import { StaticImageData } from "next/image";
+import firstResume from "../assets/13237069_5192021.jpg";
+import thirdResume from "../assets/196924512_10724504.jpg";
+import secondResume from "../assets/freepik-professional-geometric-mark-smith-web-developer-resume-20250526115729tKWm.jpeg";
 export type Features = {
   id: number;
   title: string;
@@ -84,5 +88,37 @@ export const pricingPlans: PricingPlan[] = [
     ],
     cta: "Go Premium",
     popular: false,
+  },
+];
+
+export const NavigationsLinks = [
+  { href: "/", label: "Home" },
+  { href: "#features", label: "Features" },
+  { href: "#pricing", label: "Pricing" },
+  { href: "/templates", label: "Templates" },
+  { href: "/dashboard", label: "Dashboard" },
+];
+
+export type TemplateType = {
+  id: number;
+  name: string;
+  image: string | StaticImageData;
+};
+
+export const Templates = [
+  {
+    id: 1,
+    name: "Modern",
+    image: secondResume,
+  },
+  {
+    id: 2,
+    name: "Professional",
+    image: secondResume,
+  },
+  {
+    id: 3,
+    name: "Creative",
+    image: secondResume,
   },
 ];
